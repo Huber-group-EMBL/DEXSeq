@@ -45,7 +45,7 @@ arrangeCoefs <- function(
       varLevels <- lapply(varsInTerm, function(v) levels(factor(mf[[v]])))
       coefIndices <- array(
         NA_character_,
-        dim = sapply(varLevels, length),
+        dim = lengths(varLevels),
         dimnames = varLevels
       )
       names(dimnames(coefIndices)) <- varsInTerm
@@ -150,7 +150,7 @@ fitAndArrangeCoefs <- function(
   fitExpToVar,
   geneID
 ) {
-  if (length(levels(mf$exon)) <= 1) {
+  if (nlevels(mf$exon) <= 1) {
     return(NULL)
   }
   mm <- model.matrix(frm, mf)

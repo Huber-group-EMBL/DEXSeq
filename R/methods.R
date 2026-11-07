@@ -61,7 +61,7 @@ estimateDispersions.DEXSeqDataSet <- function(
   )
 
   allVars <- all.vars(formula)
-  if (any(!allVars %in% colnames(colData(object)))) {
+  if (!all(allVars %in% colnames(colData(object)))) {
     notPresent <- allVars[!allVars %in% colnames(colData(object))]
     notPresent <- paste(notPresent, collapse = ",")
     stop(sprintf(

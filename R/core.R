@@ -92,7 +92,7 @@ testForDEU <-
     }
 
     allVars <- all.vars(reducedModel)
-    if (any(!allVars %in% colnames(colData(object)))) {
+    if (!all(allVars %in% colnames(colData(object)))) {
       notPresent <- allVars[!allVars %in% colnames(colData(object))]
       notPresent <- paste(notPresent, collapse = ",")
       stop(sprintf(
@@ -102,7 +102,7 @@ testForDEU <-
     }
 
     allVars <- all.vars(fullModel)
-    if (any(!allVars %in% colnames(colData(object)))) {
+    if (!all(allVars %in% colnames(colData(object)))) {
       notPresent <- allVars[!allVars %in% colnames(colData(object))]
       notPresent <- paste(notPresent, collapse = ",")
       stop(sprintf(
@@ -175,7 +175,7 @@ estimateExonFoldChanges <- function(
   if (!.hasSlot(object, "rowRanges")) {
     object <- updateObject(object)
   }
-  if (any(is.na(sizeFactors(object)))) {
+  if (anyNA(sizeFactors(object))) {
     stop("Please estimate sizeFactors first\n")
   }
   if (!fitExpToVar %in% colnames(sampleAnnotation(object))) {
