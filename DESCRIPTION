@@ -25,7 +25,7 @@ Description: The package is focused on finding differential exon usage
         models for testing. The package also provides functions for the
         visualization and exploration of the results.
 License: GPL (>= 3)
-URL:
+URL:https://huber-group-embl.github.io/DEXSeq/
 biocViews: ImmunoOncology, Sequencing, RNASeq, DifferentialExpression, AlternativeSplicing, DifferentialSplicing, GeneExpression, Visualization
 VignetteBuilder: knitr
 RoxygenNote: 7.3.3
