@@ -3,7 +3,7 @@ pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
   DEXSeq: DEXSeq.html
-last_built: 2026-11-07T16:59Z
+last_built: 2026-11-07T17:02Z
 urls:
   reference: https://huber-group-embl.github.io/DEXSeq/reference
   article: https://huber-group-embl.github.io/DEXSeq/articles
