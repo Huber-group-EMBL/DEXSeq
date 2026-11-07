@@ -1,0 +1,14 @@
+name: Test R-universe
+
+on:
+  push:
+    branches: [devel]
+  pull_request:
+
+jobs:
+  build:
+    name: R-universe testing
+    uses: r-universe-org/workflows/.github/workflows/build.yml@v3
+    with:
+      universe: bioc
+      organization: bioconductor
