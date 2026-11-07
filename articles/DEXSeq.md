@@ -1481,7 +1481,7 @@ the generation of the present document.
 sessionInfo()
 ```
 
-    ## R Under development (unstable) (2026-11-06 r90845)
+    ## R Under development (unstable) (2026-11-05 r90840)
     ## Platform: x86_64-pc-linux-gnu
     ## Running under: Ubuntu 26.04.1 LTS
     ## 
