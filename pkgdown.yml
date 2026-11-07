@@ -1,0 +1,9 @@
+pandoc: 3.8.3
+pkgdown: 2.2.1
+pkgdown_sha: ~
+articles:
+  DEXSeq: DEXSeq.html
+last_built: 2026-11-07T15:08Z
+urls:
+  reference: https://huber-group-embl.github.io/DEXSeq/reference
+  article: https://huber-group-embl.github.io/DEXSeq/articles
