@@ -128,7 +128,7 @@ plotDEXSeq <- function(
       hei <- c(rep(hei[1], op - 1), hei)
       mat <- c(mat, length(mat) + seq(along = op))
     }
-    hei <- c(hei, .2)
+    hei <- c(hei, 0.2)
     mat <- c(mat, length(mat) + 1)
     layout(matrix(mat), heights = hei)
     par(mar = c(2, 4, 4, 2))
@@ -313,8 +313,8 @@ plotDEXSeq <- function(
                 names,
                 trName = trans[i],
                 cex = 0.8,
-                miny = .25,
-                maxy = .75
+                miny = 0.25,
+                maxy = 0.75
               )
             } else {
               codingRanges <- IRanges(
@@ -345,8 +345,8 @@ plotDEXSeq <- function(
                   drawNames = FALSE,
                   drawIntronLines = FALSE,
                   newPanel = FALSE,
-                  miny = .25,
-                  maxy = .75
+                  miny = 0.25,
+                  maxy = 0.75
                 )
               }
               drawGene(
@@ -402,7 +402,7 @@ plotDEXSeq <- function(
       outer = TRUE,
       cex = 1.5
     )
-    posforlegend <- seq(.7, .9, length.out = numcond)
+    posforlegend <- seq(0.7, 0.9, length.out = numcond)
     for (i in seq(along = color)) {
       mtext(
         names(color[i]),
@@ -440,7 +440,7 @@ makevstaxis <- function(min, ylimn, ecs, ...) {
     vst(ticks, ecs)[1:(length(ticks) - 1)]) /
     (vst(ylimn[2], ecs) - vst(ylimn[1], ecs))
   #   ticks <- c( 0, ticks[ min( which( decade_lengths > .1 ) ) : length(ticks) ] )
-  mlength <- which(decade_lengths > .1)
+  mlength <- which(decade_lengths > 0.1)
   if (length(mlength)) {
     fromw <- pmax(mlength, 0, na.rm = TRUE)[1]
   } else {
@@ -459,34 +459,34 @@ makevstaxis <- function(min, ylimn, ecs, ...) {
   for (i in minlog10:(maxlog10 - 1)) {
     decade_length <- (vst(10^(i + 1), ecs) - vst(10^i, ecs)) /
       (vst(ylimn[2], ecs) - vst(ylimn[1], ecs))
-    if (decade_length > .1) {
+    if (decade_length > 0.1) {
       axis(
         2,
         at = vst(1:9 * 10^i, ecs),
         labels = FALSE,
         las = 2,
-        tcl = -.25,
+        tcl = -0.25,
         pos = 0,
         ...
       )
     }
-    if (decade_length > .4 & decade_length <= .6) {
+    if (decade_length > 0.4 & decade_length <= 0.6) {
       axis(
         2,
         at = vst(c(2, 3, 5) * 10^i, ecs),
         labels = (c(2, 3, 5) * 10^i),
         las = 2,
-        tcl = -.25,
+        tcl = -0.25,
         pos = 0,
         ...
       )
-    } else if (decade_length > .6) {
+    } else if (decade_length > 0.6) {
       axis(
         2,
         at = vst(c(1.5, 2:9) * 10^i, ecs),
         labels = (c(1.5, 2:9) * 10^i),
         las = 2,
-        tcl = -.25,
+        tcl = -0.25,
         pos = 0,
         ...
       )

@@ -12,7 +12,7 @@ Imports: BiocGenerics, biomaRt, hwriter, methods, stringr, Rsamtools,
         statmod, geneplotter, genefilter
 Depends: BiocParallel, Biobase, SummarizedExperiment, IRanges (>= 2.5.17),
         GenomicRanges (>= 1.23.7), DESeq2 (>= 1.39.6), AnnotationDbi,
-        S4Vectors (>= 0.23.18)
+        S4Vectors (>= 0.23.18), R (>= 3.2)
 Suggests: GenomeInfoDb, GenomicFeatures, txdbmaker, pasilla (>= 0.2.22),
         BiocStyle, knitr, rmarkdown, testthat,
         pasillaBamSubset, GenomicAlignments, roxygen2, glmGamPoi

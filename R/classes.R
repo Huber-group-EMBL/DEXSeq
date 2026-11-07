@@ -79,7 +79,7 @@ DEXSeqDataSet <- function(
   }
 
   allVars <- all.vars(design)
-  if (any(!allVars %in% colnames(colData))) {
+  if (!all(allVars %in% colnames(colData))) {
     notPresent <- allVars[!allVars %in% colnames(colData)]
     notPresent <- paste(notPresent, collapse = ",")
     stop(
@@ -388,7 +388,7 @@ DEXSeqDataSetFromHTSeq <- function(
   }
   dcounts <- sapply(lf, `[[`, "V2")
   rownames(dcounts) <- lf[[1]][, 1]
-  dcounts <- dcounts[substr(rownames(dcounts), 1, 1) != "_", ]
+  dcounts <- dcounts[!startsWith(rownames(dcounts), "_"), ]
   rownames(dcounts) <- sub(":", ":E", rownames(dcounts))
   colnames(dcounts) <- countfiles
   splitted <- strsplit(rownames(dcounts), ":")
