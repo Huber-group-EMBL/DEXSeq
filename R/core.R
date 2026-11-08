@@ -204,7 +204,7 @@ estimateExonFoldChanges <- function(
   disps <- dispersions(object)
   disps[is.na(disps)] <- 1e-6
   mf <- object@modelFrameBM
-  if (is(mf[[fitExpToVar]], "numeric")) {
+  if (is.numeric(mf[[fitExpToVar]])) {
     maxRowsMF <- 0
   }
   numsamples <- nrow(sampleAnnotation(object))
