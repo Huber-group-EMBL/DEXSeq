@@ -265,7 +265,11 @@ plotMA.DEXSeqDataSet <- function(
     stop("first call estimateExonFoldChanges")
   }
   if (is.null(foldChangeColumn)) {
-    y <- dexseqResults[, grep("log2fold", colnames(dexseqResults))[1]]
+    y <- dexseqResults[, grep(
+      "log2fold",
+      colnames(dexseqResults),
+      fixed = TRUE
+    )[1]]
   } else {
     y <- dexseqResults[, foldChangeColumn]
   }
@@ -294,7 +298,11 @@ plotMA.DEXSeqResults <- function(
   x <- rowMeans(counts(object, normalized = TRUE))
   dexseqResults <- object[, which(mcols(object)$type == "DEXSeq results")]
   if (is.null(foldChangeColumn)) {
-    y <- dexseqResults[, grep("log2fold", colnames(dexseqResults))[1]]
+    y <- dexseqResults[, grep(
+      "log2fold",
+      colnames(dexseqResults),
+      fixed = TRUE
+    )[1]]
   } else {
     y <- dexseqResults[, foldChangeColumn]
   }

@@ -390,9 +390,9 @@ DEXSeqDataSetFromHTSeq <- function(
   dcounts <- sapply(lf, `[[`, "V2")
   rownames(dcounts) <- lf[[1]][, 1]
   dcounts <- dcounts[!startsWith(rownames(dcounts), "_"), ]
-  rownames(dcounts) <- sub(":", ":E", rownames(dcounts))
+  rownames(dcounts) <- sub(":", ":E", rownames(dcounts), fixed = TRUE)
   colnames(dcounts) <- countfiles
-  splitted <- strsplit(rownames(dcounts), ":")
+  splitted <- strsplit(rownames(dcounts), ":", fixed = TRUE)
   exons <- sapply(splitted, "[[", 2)
   genesrle <- sapply(splitted, "[[", 1)
   if (!is.null(flattenedfile)) {
@@ -412,12 +412,12 @@ DEXSeqDataSetFromHTSeq <- function(
       "ex2",
       "attr"
     )
-    aggregates$strand <- gsub("\\.", "*", aggregates$strand)
+    aggregates$strand <- gsub(".", "*", aggregates$strand, fixed = TRUE)
     aggregates <- aggregates[which(aggregates$class == "exonic_part"), ]
     aggregates$attr <- gsub("\"|=|;", "", aggregates$attr)
     aggregates$gene_id <- sub(".*gene_id\\s(\\S+).*", "\\1", aggregates$attr)
     transcripts <- gsub(".*transcripts\\s(\\S+).*", "\\1", aggregates$attr)
-    transcripts <- strsplit(transcripts, "\\+")
+    transcripts <- strsplit(transcripts, "+", fixed = TRUE)
     exonids <- gsub(".*exonic_part_number\\s(\\S+).*", "\\1", aggregates$attr)
     exoninfo <- GRanges(
       as.character(aggregates$chr),
