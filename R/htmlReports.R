@@ -249,7 +249,7 @@ DEXSeqHTML <- function(
 
   if (is(mart, "Mart")) {
     if (attributes(mart)$dataset != "") {
-      forvalues <- strsplit(as.character(genetable$geneID), "\\+")
+      forvalues <- strsplit(as.character(genetable$geneID), "+", fixed = TRUE)
       names(forvalues) <- genetable$geneID
       if (length(filter) > 1) {
         warning("length(filter) > 2, only first element will be taken")
@@ -262,7 +262,7 @@ DEXSeqHTML <- function(
         mart = mart
       )
       fromart <- lapply(genetable$geneID, function(x) {
-        sep <- do.call(c, strsplit(as.character(x), "\\+"))
+        sep <- do.call(c, strsplit(as.character(x), "+", fixed = TRUE))
         extra[which(extra[, filter] %in% sep), ]
       })
 
@@ -293,7 +293,7 @@ DEXSeqHTML <- function(
   }
 
   genetable$geneID <- sapply(as.character(genetable$geneID), function(m) {
-    w <- strsplit(m, "\\+")
+    w <- strsplit(m, "+", fixed = TRUE)
     ns <- sapply(w, "[[", 1)
     hwrite(
       paste(unlist(w), collapse = " "),
@@ -329,7 +329,7 @@ makePlotPage <- function(
   allopts <- c("expression", "splicing", "counts", "transcripts")
   opts <- allopts %in% whichtag
   onlytag <- allopts[max(which(opts))]
-  pagename <- sapply(strsplit(as.character(gene), "\\+"), "[[", 1)
+  pagename <- sapply(strsplit(as.character(gene), "+", fixed = TRUE), "[[", 1)
   genpage <- openPage(paste(ptowrite, pagename, onlytag, ".html", sep = ""))
   hwrite(links, table = TRUE, border = 0, genpage)
   svg(
