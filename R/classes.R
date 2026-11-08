@@ -15,26 +15,26 @@ DEXSeqDataSet <- function(
   alternativeCountData = NULL
 ) {
   ### Checking inputs ###
-  if (!(is(countData, "matrix") | is(countData, "data.frame"))) {
+  if (!(is.matrix(countData) || is.data.frame(countData))) {
     stop(
       "Unexpected input: the parameter 'countData' must be either a matrix or a data.frame",
       call. = FALSE
     )
   }
   countData <- as.matrix(countData)
-  if (!(is(featureID, "character") | is(featureID, "factor"))) {
+  if (!(is.character(featureID) || is.factor(featureID))) {
     stop(
       "Unexpected input: the parameter 'featureID' must be either a character or a factor",
       call. = FALSE
     )
   }
-  if (!(is(groupID, "character") | is(groupID, "factor"))) {
+  if (!(is.character(groupID) || is.factor(groupID))) {
     stop(
       "Unexpected input: the parameter 'groupID' must be either a character or a factor",
       call. = FALSE
     )
   }
-  if (!is(sampleData, "data.frame")) {
+  if (!is.data.frame(sampleData)) {
     stop(
       "Unexpected input: the parameter 'sampleData' must be a data.frame",
       call. = FALSE

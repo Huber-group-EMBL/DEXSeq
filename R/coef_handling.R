@@ -184,7 +184,7 @@ fitAndArrangeCoefs <- function(
     return(NULL)
   }
 
-  if (is(mf[[fitExpToVar]], "numeric")) {
+  if (is.numeric(mf[[fitExpToVar]])) {
     coefs <- fit$coefficients
     attributes(coefs)$fitType <- "numeric"
   } else {
@@ -364,7 +364,7 @@ getEffectsForExonsSM <- function(
 getEffectsForGene <- function(geneID, object, maxRowsMF, fitExpToVar) {
   rt <- object$groupID %in% geneID
   sampleData <- object@sampleData
-  if (is(object@sampleData[[fitExpToVar]], "numeric")) {
+  if (is.numeric(object@sampleData[[fitExpToVar]])) {
     maxRowsMF <- 0
   }
   numsamples <- nrow(object@sampleData)
