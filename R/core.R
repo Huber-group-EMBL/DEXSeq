@@ -82,7 +82,7 @@ testForDEU <-
     BPPARAM = SerialParam(),
     fitType = c("DESeq2", "glmGamPoi")
   ) {
-    if (is.null(sizeFactors(object)) & is.null(normalizationFactors(object))) {
+    if (is.null(sizeFactors(object)) && is.null(normalizationFactors(object))) {
       stop(
         "first call estimateSizeFactors or provide a normalizationFactor matrix"
       )

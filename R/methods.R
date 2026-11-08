@@ -41,7 +41,7 @@ estimateDispersions.DEXSeqDataSet <- function(
   if (!.hasSlot(object, "rowRanges")) {
     object <- updateObject(object)
   }
-  if (is.null(sizeFactors(object)) & is.null(normalizationFactors(object))) {
+  if (is.null(sizeFactors(object)) && is.null(normalizationFactors(object))) {
     stop(
       "first call estimateSizeFactors or provide a normalizationFactor matrix before estimateDispersions"
     )
@@ -70,7 +70,7 @@ estimateDispersions.DEXSeqDataSet <- function(
     ))
   }
 
-  if (fitType == "glmGamPoi" & !is(BPPARAM, "SerialParam")) {
+  if (fitType == "glmGamPoi" && !is(BPPARAM, "SerialParam")) {
     message(
       "\nParallelization has not been implemented for estimation of dispersions using glmGamPoi, using a single core for this estimation.\n"
     )
