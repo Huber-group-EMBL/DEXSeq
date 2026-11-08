@@ -8,7 +8,7 @@ arrangeCoefs <- function(
   if (any(attr(mm, "contrasts") != "contr.treatment")) {
     stop("Can only deal with standard 'treatment' contrasts.")
   } # Do I need this?
-  if (is.null(fit) & insertValues) {
+  if (is.null(fit) && insertValues) {
     stop("If fit==NULL, returnCoefValues must be FALSE")
   }
   if (!is.null(fit)) {
@@ -45,7 +45,7 @@ arrangeCoefs <- function(
       varLevels <- lapply(varsInTerm, function(v) levels(factor(mf[[v]])))
       coefIndices <- array(
         NA_character_,
-        dim = sapply(varLevels, length),
+        dim = lengths(varLevels),
         dimnames = varLevels
       )
       names(dimnames(coefIndices)) <- varsInTerm
@@ -150,7 +150,7 @@ fitAndArrangeCoefs <- function(
   fitExpToVar,
   geneID
 ) {
-  if (length(levels(mf$exon)) <= 1) {
+  if (nlevels(mf$exon) <= 1) {
     return(NULL)
   }
   mm <- model.matrix(frm, mf)
@@ -184,7 +184,7 @@ fitAndArrangeCoefs <- function(
     return(NULL)
   }
 
-  if (is(mf[[fitExpToVar]], "numeric")) {
+  if (is.numeric(mf[[fitExpToVar]])) {
     coefs <- fit$coefficients
     attributes(coefs)$fitType <- "numeric"
   } else {
@@ -221,7 +221,7 @@ getEffectsForPlotting <- function(
       if (!any(c(groupingVar, "exon") %in% names(dimnames(x)))) {
         fittedValues <- fittedValues + mean(x)
       } else if (
-        averageOutExpression & identical(names(dimnames(x)), groupingVar)
+        averageOutExpression && identical(names(dimnames(x)), groupingVar)
       ) {
         fittedValues <- fittedValues + mean(x)
       } else if (groupingVar %in% names(dimnames(x))) {
@@ -364,7 +364,7 @@ getEffectsForExonsSM <- function(
 getEffectsForGene <- function(geneID, object, maxRowsMF, fitExpToVar) {
   rt <- object$groupID %in% geneID
   sampleData <- object@sampleData
-  if (is(object@sampleData[[fitExpToVar]], "numeric")) {
+  if (is.numeric(object@sampleData[[fitExpToVar]])) {
     maxRowsMF <- 0
   }
   numsamples <- nrow(object@sampleData)

@@ -82,7 +82,7 @@ testForDEU <-
     BPPARAM = SerialParam(),
     fitType = c("DESeq2", "glmGamPoi")
   ) {
-    if (is.null(sizeFactors(object)) & is.null(normalizationFactors(object))) {
+    if (is.null(sizeFactors(object)) && is.null(normalizationFactors(object))) {
       stop(
         "first call estimateSizeFactors or provide a normalizationFactor matrix"
       )
@@ -92,7 +92,7 @@ testForDEU <-
     }
 
     allVars <- all.vars(reducedModel)
-    if (any(!allVars %in% colnames(colData(object)))) {
+    if (!all(allVars %in% colnames(colData(object)))) {
       notPresent <- allVars[!allVars %in% colnames(colData(object))]
       notPresent <- paste(notPresent, collapse = ",")
       stop(sprintf(
@@ -102,7 +102,7 @@ testForDEU <-
     }
 
     allVars <- all.vars(fullModel)
-    if (any(!allVars %in% colnames(colData(object)))) {
+    if (!all(allVars %in% colnames(colData(object)))) {
       notPresent <- allVars[!allVars %in% colnames(colData(object))]
       notPresent <- paste(notPresent, collapse = ",")
       stop(sprintf(
@@ -175,7 +175,7 @@ estimateExonFoldChanges <- function(
   if (!.hasSlot(object, "rowRanges")) {
     object <- updateObject(object)
   }
-  if (any(is.na(sizeFactors(object)))) {
+  if (anyNA(sizeFactors(object))) {
     stop("Please estimate sizeFactors first\n")
   }
   if (!fitExpToVar %in% colnames(sampleAnnotation(object))) {
@@ -204,7 +204,7 @@ estimateExonFoldChanges <- function(
   disps <- dispersions(object)
   disps[is.na(disps)] <- 1e-6
   mf <- object@modelFrameBM
-  if (is(mf[[fitExpToVar]], "numeric")) {
+  if (is.numeric(mf[[fitExpToVar]])) {
     maxRowsMF <- 0
   }
   numsamples <- nrow(sampleAnnotation(object))

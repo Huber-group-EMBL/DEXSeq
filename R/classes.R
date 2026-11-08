@@ -15,26 +15,26 @@ DEXSeqDataSet <- function(
   alternativeCountData = NULL
 ) {
   ### Checking inputs ###
-  if (!(is(countData, "matrix") | is(countData, "data.frame"))) {
+  if (!(is.matrix(countData) || is.data.frame(countData))) {
     stop(
       "Unexpected input: the parameter 'countData' must be either a matrix or a data.frame",
       call. = FALSE
     )
   }
   countData <- as.matrix(countData)
-  if (!(is(featureID, "character") | is(featureID, "factor"))) {
+  if (!(is.character(featureID) || is.factor(featureID))) {
     stop(
       "Unexpected input: the parameter 'featureID' must be either a character or a factor",
       call. = FALSE
     )
   }
-  if (!(is(groupID, "character") | is(groupID, "factor"))) {
+  if (!(is.character(groupID) || is.factor(groupID))) {
     stop(
       "Unexpected input: the parameter 'groupID' must be either a character or a factor",
       call. = FALSE
     )
   }
-  if (!is(sampleData, "data.frame")) {
+  if (!is.data.frame(sampleData)) {
     stop(
       "Unexpected input: the parameter 'sampleData' must be a data.frame",
       call. = FALSE
@@ -79,7 +79,7 @@ DEXSeqDataSet <- function(
   }
 
   allVars <- all.vars(design)
-  if (any(!allVars %in% colnames(colData))) {
+  if (!all(allVars %in% colnames(colData))) {
     notPresent <- allVars[!allVars %in% colnames(colData)]
     notPresent <- paste(notPresent, collapse = ",")
     stop(
@@ -379,6 +379,7 @@ DEXSeqDataSetFromHTSeq <- function(
   lf <- lapply(countfiles, function(x) {
     # quote="" because some count files have quoted IDs ("gene":"exon"),
     # which read.table would otherwise split into extra columns
+    # https://github.com/Huber-group-EMBL/DEXSeq/issues/15
     ct <- read.table(x, header = FALSE, stringsAsFactors = FALSE, quote = "")
     ct$V1 <- gsub("\"", "", ct$V1)
     ct
@@ -388,10 +389,10 @@ DEXSeqDataSetFromHTSeq <- function(
   }
   dcounts <- sapply(lf, `[[`, "V2")
   rownames(dcounts) <- lf[[1]][, 1]
-  dcounts <- dcounts[substr(rownames(dcounts), 1, 1) != "_", ]
-  rownames(dcounts) <- sub(":", ":E", rownames(dcounts))
+  dcounts <- dcounts[!startsWith(rownames(dcounts), "_"), ]
+  rownames(dcounts) <- sub(":", ":E", rownames(dcounts), fixed = TRUE)
   colnames(dcounts) <- countfiles
-  splitted <- strsplit(rownames(dcounts), ":")
+  splitted <- strsplit(rownames(dcounts), ":", fixed = TRUE)
   exons <- sapply(splitted, "[[", 2)
   genesrle <- sapply(splitted, "[[", 1)
   if (!is.null(flattenedfile)) {
@@ -411,12 +412,12 @@ DEXSeqDataSetFromHTSeq <- function(
       "ex2",
       "attr"
     )
-    aggregates$strand <- gsub("\\.", "*", aggregates$strand)
+    aggregates$strand <- gsub(".", "*", aggregates$strand, fixed = TRUE)
     aggregates <- aggregates[which(aggregates$class == "exonic_part"), ]
     aggregates$attr <- gsub("\"|=|;", "", aggregates$attr)
     aggregates$gene_id <- sub(".*gene_id\\s(\\S+).*", "\\1", aggregates$attr)
     transcripts <- gsub(".*transcripts\\s(\\S+).*", "\\1", aggregates$attr)
-    transcripts <- strsplit(transcripts, "\\+")
+    transcripts <- strsplit(transcripts, "+", fixed = TRUE)
     exonids <- gsub(".*exonic_part_number\\s(\\S+).*", "\\1", aggregates$attr)
     exoninfo <- GRanges(
       as.character(aggregates$chr),

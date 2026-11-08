@@ -41,7 +41,7 @@ estimateDispersions.DEXSeqDataSet <- function(
   if (!.hasSlot(object, "rowRanges")) {
     object <- updateObject(object)
   }
-  if (is.null(sizeFactors(object)) & is.null(normalizationFactors(object))) {
+  if (is.null(sizeFactors(object)) && is.null(normalizationFactors(object))) {
     stop(
       "first call estimateSizeFactors or provide a normalizationFactor matrix before estimateDispersions"
     )
@@ -55,13 +55,10 @@ estimateDispersions.DEXSeqDataSet <- function(
     ]
   }
   stopifnot(length(maxit) == 1)
-  fitType <- match.arg(
-    fitType,
-    choices = c("parametric", "local", "mean", "glmGamPoi")
-  )
+  fitType <- match.arg(fitType)
 
   allVars <- all.vars(formula)
-  if (any(!allVars %in% colnames(colData(object)))) {
+  if (!all(allVars %in% colnames(colData(object)))) {
     notPresent <- allVars[!allVars %in% colnames(colData(object))]
     notPresent <- paste(notPresent, collapse = ",")
     stop(sprintf(
@@ -70,7 +67,7 @@ estimateDispersions.DEXSeqDataSet <- function(
     ))
   }
 
-  if (fitType == "glmGamPoi" & !is(BPPARAM, "SerialParam")) {
+  if (fitType == "glmGamPoi" && !is(BPPARAM, "SerialParam")) {
     message(
       "\nParallelization has not been implemented for estimation of dispersions using glmGamPoi, using a single core for this estimation.\n"
     )
@@ -268,7 +265,11 @@ plotMA.DEXSeqDataSet <- function(
     stop("first call estimateExonFoldChanges")
   }
   if (is.null(foldChangeColumn)) {
-    y <- dexseqResults[, grep("log2fold", colnames(dexseqResults))[1]]
+    y <- dexseqResults[, grep(
+      "log2fold",
+      colnames(dexseqResults),
+      fixed = TRUE
+    )[1]]
   } else {
     y <- dexseqResults[, foldChangeColumn]
   }
@@ -297,7 +298,11 @@ plotMA.DEXSeqResults <- function(
   x <- rowMeans(counts(object, normalized = TRUE))
   dexseqResults <- object[, which(mcols(object)$type == "DEXSeq results")]
   if (is.null(foldChangeColumn)) {
-    y <- dexseqResults[, grep("log2fold", colnames(dexseqResults))[1]]
+    y <- dexseqResults[, grep(
+      "log2fold",
+      colnames(dexseqResults),
+      fixed = TRUE
+    )[1]]
   } else {
     y <- dexseqResults[, foldChangeColumn]
   }

@@ -26,7 +26,7 @@ perGeneQValue <- function(object, p = "pvalue", method = perGeneQValueExact) {
   res <- q[match(pGene, theta)]
   res <- pmin(1, res)
   names(res) <- names(geneSplit)
-  stopifnot(!any(is.na(res)))
+  stopifnot(!anyNA(res))
   return(res)
 }
 
