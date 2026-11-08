@@ -379,6 +379,7 @@ DEXSeqDataSetFromHTSeq <- function(
   lf <- lapply(countfiles, function(x) {
     # quote="" because some count files have quoted IDs ("gene":"exon"),
     # which read.table would otherwise split into extra columns
+    # https://github.com/Huber-group-EMBL/DEXSeq/issues/15
     ct <- read.table(x, header = FALSE, stringsAsFactors = FALSE, quote = "")
     ct$V1 <- gsub("\"", "", ct$V1)
     ct
