@@ -8,7 +8,7 @@ arrangeCoefs <- function(
   if (any(attr(mm, "contrasts") != "contr.treatment")) {
     stop("Can only deal with standard 'treatment' contrasts.")
   } # Do I need this?
-  if (is.null(fit) & insertValues) {
+  if (is.null(fit) && insertValues) {
     stop("If fit==NULL, returnCoefValues must be FALSE")
   }
   if (!is.null(fit)) {
@@ -221,7 +221,7 @@ getEffectsForPlotting <- function(
       if (!any(c(groupingVar, "exon") %in% names(dimnames(x)))) {
         fittedValues <- fittedValues + mean(x)
       } else if (
-        averageOutExpression & identical(names(dimnames(x)), groupingVar)
+        averageOutExpression && identical(names(dimnames(x)), groupingVar)
       ) {
         fittedValues <- fittedValues + mean(x)
       } else if (groupingVar %in% names(dimnames(x))) {
