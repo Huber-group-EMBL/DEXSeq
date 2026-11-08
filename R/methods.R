@@ -55,10 +55,7 @@ estimateDispersions.DEXSeqDataSet <- function(
     ]
   }
   stopifnot(length(maxit) == 1)
-  fitType <- match.arg(
-    fitType,
-    choices = c("parametric", "local", "mean", "glmGamPoi")
-  )
+  fitType <- match.arg(fitType)
 
   allVars <- all.vars(formula)
   if (!all(allVars %in% colnames(colData(object)))) {
