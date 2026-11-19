@@ -34,7 +34,7 @@ perGeneQValue <- function(object, p = "pvalue", method = perGeneQValueExact) {
 ## p-values are smaller (using the number of exons per gene)
 ##----------------------------------------------------------------------
 perGeneQValueBySimulation <- function(pGene, theta, geneSplit, nperm = 24) {
-  nr <- sum(listLen(geneSplit))
+  nr <- sum(lengths(geneSplit))
   pRand <- apply(
     matrix(runif(nr * nperm), nrow = nr, ncol = nperm),
     2,
@@ -67,7 +67,7 @@ perGeneQValueExact <- function(pGene, theta, geneSplit) {
   ## Below we first identify the summands which are the same
   ## (because they have the same n_i), then do the sum via the
   ## mapply
-  numExons <- listLen(geneSplit)
+  numExons <- lengths(geneSplit)
   tab <- tabulate(numExons)
   notZero <- (tab > 0)
   numerator <- mapply(
