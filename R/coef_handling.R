@@ -20,18 +20,27 @@ arrangeCoefs <- function(
   coefIndicesList <-
     lapply(seq_len(ncol(fctTbl)), function(fctTblCol) {
       termName <- colnames(fctTbl)[fctTblCol]
-      varsInTerm <- stringr::str_split(termName, stringr::fixed(":"))[[1]]
+      varsInTerm <- strsplit(termName, ":", fixed = TRUE)[[1]]
       stopifnot(all(fctTbl[varsInTerm, fctTblCol] == 1))
       stopifnot(sum(fctTbl[, fctTblCol]) == length(varsInTerm))
       coefNames <- colnames(mm)[attr(mm, "assign") == fctTblCol]
-      lvlTbl <- stringr::str_match(
-        coefNames,
-        stringr::str_c(
-          "^",
-          stringr::str_c(varsInTerm, "([^:]*)", collapse = ":"),
-          "$"
-        )
-      )[, -1, drop = FALSE]
+      lvlPattern <- paste0(
+        "^",
+        paste0(varsInTerm, "([^:]*)", collapse = ":"),
+        "$"
+      )
+      lvlMatches <- regmatches(coefNames, regexec(lvlPattern, coefNames))
+      lvlTbl <- matrix(
+        as.character(unlist(lapply(lvlMatches, function(m) {
+          if (length(m) == 0) {
+            rep(NA_character_, length(varsInTerm))
+          } else {
+            m[-1]
+          }
+        }))),
+        ncol = length(varsInTerm),
+        byrow = TRUE
+      )
       stopifnot(ncol(lvlTbl) == length(varsInTerm))
       stopifnot(nrow(lvlTbl) == length(coefNames))
       if (

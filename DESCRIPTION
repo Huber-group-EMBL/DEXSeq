@@ -8,7 +8,7 @@ Authors@R:
            comment = "Maintainer until 2026."),
     person("Hugo", "Gruson", email = "hugo.gruson@embl.de", role = "cre")
   )
-Imports: BiocGenerics, biomaRt, hwriter, methods, stringr, Rsamtools,
+Imports: BiocGenerics, biomaRt, hwriter, methods, Rsamtools,
         statmod, geneplotter, genefilter
 Depends: BiocParallel, Biobase, SummarizedExperiment, IRanges (>= 2.5.17),
         GenomicRanges (>= 1.23.7), DESeq2 (>= 1.39.6), AnnotationDbi,
