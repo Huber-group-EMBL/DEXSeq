@@ -22,7 +22,6 @@ perGeneQValue <- function(object, p = "pvalue", method = perGeneQValueExact) {
   q <- method(pGene, theta, geneSplit)
 
   ## return a named vector of q-values per gene
-  res <- rep(NA_real_, length(pGene))
   res <- q[match(pGene, theta)]
   res <- pmin(1, res)
   names(res) <- names(geneSplit)
