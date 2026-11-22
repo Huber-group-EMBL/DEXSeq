@@ -1,4 +1,4 @@
-#' @import Biobase BiocGenerics hwriter methods stringr statmod biomaRt GenomicRanges S4Vectors IRanges Rsamtools DESeq2 BiocParallel geneplotter genefilter SummarizedExperiment
+#' @import BiocGenerics hwriter methods stringr statmod biomaRt GenomicRanges S4Vectors IRanges Rsamtools DESeq2 BiocParallel geneplotter genefilter SummarizedExperiment
 #' @importFrom AnnotationDbi select
 #' @importFrom grDevices colorRamp colorRampPalette dev.off rgb svg palette.colors
 #' @importFrom graphics abline axis hist layout mtext par plot.new plot.window rect segments
