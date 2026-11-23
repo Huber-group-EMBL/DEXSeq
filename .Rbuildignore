@@ -4,3 +4,4 @@
 ^\.github$
 ^[.]?air[.]toml$
 ^\.vscode$
+^README\.qmd$

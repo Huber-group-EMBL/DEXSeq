@@ -1,0 +1,41 @@
+
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
+
+# DEXSeq <img src="man/figures/logo.png" align="right" width="120" />
+
+<!-- badges: start -->
+
+<!-- badges: end -->
+
+The package is focused on finding differential exon usage using RNA-seq
+exon counts between samples with different experimental designs. It
+provides functions that allows the user to make the necessary
+statistical tests based on a model that uses the negative binomial
+distribution to estimate the variance between biological replicates and
+generalized linear models for testing. The package also provides
+functions for the visualization and exploration of the results.
+
+## Installation
+
+You can install this package from Bioconductor:
+
+``` r
+# install.packages("BiocManager")
+BiocManager::install("DEXSeq")
+```
+
+You can also install the development version from
+[GitHub](https://github.com/Huber-group-EMBL/DEXSeq) with:
+
+``` r
+# install.packages("BiocManager")
+BiocManager::("Huber-group-EMBL/DEXSeq")
+```
+
+## Usage
+
+Please refer to the
+[vignette](https://huber-group-embl.github.io/DEXSeq/articles/DEXSeq.html)
+for detailed usage instructions and examples on how to perform
+differential exon usage analysis with DEXSeq.
