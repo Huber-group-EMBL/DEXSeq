@@ -1511,7 +1511,7 @@ sessionInfo()
     ## [11] XVector_0.53.0              pasillaBamSubset_0.51.0    
     ## [13] txdbmaker_1.9.0             GenomicFeatures_1.65.2     
     ## [15] AnnotationDbi_1.77.0        Biobase_2.73.2             
-    ## [17] GenomicRanges_1.67.0        Seqinfo_1.3.2              
+    ## [17] GenomicRanges_1.67.0        Seqinfo_1.5.0              
     ## [19] IRanges_2.47.5              S4Vectors_0.53.0           
     ## [21] BiocGenerics_0.59.13        generics_0.1.4             
     ## [23] BiocStyle_2.41.0           
