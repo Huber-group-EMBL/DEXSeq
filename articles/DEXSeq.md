@@ -23,7 +23,7 @@ spliced into transcripts (alternative splicing). Note, however, that DEU
 is a more general concept than alternative splicing, since it also
 includes changes in the usage of alternative transcript start sites and
 polyadenylation sites, which can cause differential usage of exons at
-the 5’ and 3’ boundary of transcripts. DEXSeq package version: 1.59.2
+the 5’ and 3’ boundary of transcripts. DEXSeq package version: 1.61.0
 
 ## Overview
 
@@ -1481,7 +1481,7 @@ the generation of the present document.
 sessionInfo()
 ```
 
-    ## R Under development (unstable) (2026-11-06 r90845)
+    ## R Under development (unstable) (2026-11-23 r90971)
     ## Platform: x86_64-pc-linux-gnu
     ## Running under: Ubuntu 26.04.1 LTS
     ## 
@@ -1503,48 +1503,48 @@ sessionInfo()
     ## [8] base     
     ## 
     ## other attached packages:
-    ##  [1] DEXSeq_1.59.2               DESeq2_1.53.7              
-    ##  [3] SummarizedExperiment_1.43.0 MatrixGenerics_1.25.0      
+    ##  [1] DEXSeq_1.61.0               DESeq2_1.53.8              
+    ##  [3] SummarizedExperiment_1.45.0 MatrixGenerics_1.27.0      
     ##  [5] matrixStats_1.5.0           BiocParallel_1.47.0        
-    ##  [7] GenomeInfoDb_1.49.2         GenomicAlignments_1.49.2   
-    ##  [9] Rsamtools_2.29.0            Biostrings_2.81.9          
+    ##  [7] GenomeInfoDb_1.49.3         GenomicAlignments_1.51.0   
+    ##  [9] Rsamtools_2.31.0            Biostrings_2.81.9          
     ## [11] XVector_0.53.0              pasillaBamSubset_0.51.0    
-    ## [13] txdbmaker_1.9.1             GenomicFeatures_1.65.0     
-    ## [15] AnnotationDbi_1.75.2        Biobase_2.73.2             
-    ## [17] GenomicRanges_1.65.4        Seqinfo_1.3.2              
-    ## [19] IRanges_2.47.5              S4Vectors_0.51.10          
-    ## [21] BiocGenerics_0.59.12        generics_0.1.4             
+    ## [13] txdbmaker_1.9.0             GenomicFeatures_1.65.2     
+    ## [15] AnnotationDbi_1.77.0        Biobase_2.73.2             
+    ## [17] GenomicRanges_1.67.0        Seqinfo_1.3.2              
+    ## [19] IRanges_2.47.5              S4Vectors_0.53.0           
+    ## [21] BiocGenerics_0.59.13        generics_0.1.4             
     ## [23] BiocStyle_2.41.0           
     ## 
     ## loaded via a namespace (and not attached):
     ##  [1] DBI_1.3.0            bitops_1.1-0         httr2_1.3.0         
-    ##  [4] biomaRt_2.69.6       rlang_1.3.0          magrittr_2.0.5      
-    ##  [7] otel_0.2.0           compiler_4.7.0       RSQLite_3.53.3      
-    ## [10] png_0.1-9            systemfonts_1.3.2    vctrs_0.7.3         
+    ##  [4] biomaRt_2.71.0       rlang_1.3.0          magrittr_2.0.5      
+    ##  [7] otel_0.3.0           compiler_4.7.0       RSQLite_3.53.3      
+    ## [10] png_0.1-9            systemfonts_1.3.4    vctrs_0.7.3         
     ## [13] stringr_1.6.0        pkgconfig_2.0.3      crayon_1.5.3        
     ## [16] fastmap_1.2.0        dbplyr_2.6.0         rmarkdown_2.32      
-    ## [19] UCSC.utils_1.9.0     ragg_1.5.2           bit_4.6.0           
-    ## [22] xfun_0.62            cachem_1.1.0         cigarillo_1.3.1     
+    ## [19] UCSC.utils_1.11.0    ragg_1.5.2           bit_4.6.0           
+    ## [22] xfun_0.62            cachem_1.1.0         cigarillo_1.5.0     
     ## [25] jsonlite_2.0.0       progress_1.2.3       blob_1.3.0          
     ## [28] DelayedArray_0.39.8  parallel_4.7.0       prettyunits_1.2.0   
     ## [31] R6_2.6.1             bslib_0.12.0         stringi_1.8.9       
-    ## [34] RColorBrewer_1.1-3   rtracklayer_1.73.0   genefilter_1.95.0   
+    ## [34] RColorBrewer_1.1-3   rtracklayer_1.75.0   genefilter_1.95.0   
     ## [37] jquerylib_0.1.4      Rcpp_1.1.2           bookdown_0.48       
-    ## [40] knitr_1.52           BiocBaseUtils_1.15.1 splines_4.7.0       
+    ## [40] knitr_1.52           BiocBaseUtils_1.17.0 splines_4.7.0       
     ## [43] Matrix_1.7-6         tidyselect_1.2.1     abind_1.4-8         
     ## [46] yaml_2.3.12          codetools_0.2-20     hwriter_1.3.2.1     
-    ## [49] curl_8.1.0           lattice_0.23-1       tibble_3.3.1        
-    ## [52] KEGGREST_1.53.6      S7_0.2.2             evaluate_1.0.5      
-    ## [55] desc_1.4.3           survival_3.8-12      BiocFileCache_3.3.2 
+    ## [49] curl_8.2.0           lattice_0.23-1       tibble_3.3.1        
+    ## [52] KEGGREST_1.53.6      S7_1.0.0             evaluate_1.0.5      
+    ## [55] desc_1.4.3           survival_3.8-12      BiocFileCache_3.3.3 
     ## [58] pillar_1.11.1        BiocManager_1.30.27  filelock_1.0.3      
-    ## [61] RCurl_1.98-1.20      hms_1.1.4            ggplot2_4.0.3       
+    ## [61] RCurl_1.98-1.20      hms_1.1.4            ggplot2_4.0.4       
     ## [64] scales_1.4.0         xtable_1.8-8         glue_1.8.1          
-    ## [67] tools_4.7.0          BiocIO_1.23.3        annotate_1.91.0     
+    ## [67] tools_4.7.0          BiocIO_1.25.0        annotate_1.91.1     
     ## [70] locfit_1.5-9.12      fs_2.1.0             XML_3.99-0.25       
     ## [73] grid_4.7.0           restfulr_0.0.17      cli_3.6.6           
-    ## [76] textshaping_1.0.5    S4Arrays_1.13.2      dplyr_1.2.1         
-    ## [79] gtable_0.3.6         sass_0.4.10          digest_0.6.39       
-    ## [82] SparseArray_1.13.4   geneplotter_1.91.0   rjson_0.2.23        
+    ## [76] textshaping_1.1.0    S4Arrays_1.15.0      dplyr_1.2.1         
+    ## [79] gtable_0.3.6         sass_0.5.0           digest_0.6.39       
+    ## [82] SparseArray_1.15.0   geneplotter_1.91.0   rjson_0.2.23        
     ## [85] farver_2.1.2         memoise_2.0.1        htmltools_0.5.9     
     ## [88] pkgdown_2.2.1        lifecycle_1.0.5      httr_1.4.9          
     ## [91] statmod_1.5.2        bit64_4.8.6
