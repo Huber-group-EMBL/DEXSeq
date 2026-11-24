@@ -20,7 +20,9 @@ jobs:
       group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      R_BIOC_VERSION: "3.24"
+      # This is not supported by BiocManager but it is support by pak,
+      # which we are using here.
+      R_BIOC_VERSION: "'devel'"
     permissions:
       contents: write
     steps:
