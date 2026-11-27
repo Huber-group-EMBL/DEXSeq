@@ -23,7 +23,7 @@ spliced into transcripts (alternative splicing). Note, however, that DEU
 is a more general concept than alternative splicing, since it also
 includes changes in the usage of alternative transcript start sites and
 polyadenylation sites, which can cause differential usage of exons at
-the 5’ and 3’ boundary of transcripts. DEXSeq package version: 1.61.0
+the 5’ and 3’ boundary of transcripts. DEXSeq package version: 1.61.1
 
 ## Overview
 
@@ -1503,7 +1503,7 @@ sessionInfo()
     ## [8] base     
     ## 
     ## other attached packages:
-    ##  [1] DEXSeq_1.61.0               DESeq2_1.54.0              
+    ##  [1] DEXSeq_1.61.1               DESeq2_1.54.0              
     ##  [3] SummarizedExperiment_1.45.0 MatrixGenerics_1.27.0      
     ##  [5] matrixStats_1.5.0           BiocParallel_1.48.0        
     ##  [7] GenomeInfoDb_1.50.0         GenomicAlignments_1.51.0   
