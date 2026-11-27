@@ -1,33 +1,60 @@
 Package: DEXSeq
-Version: 1.61.1
 Title: Inference of differential exon usage in RNA-Seq
-Authors@R: 
-  c(
-    person("Simon", "Anders", email = "sanders@fs.tum.de", role = "aut"),
-    person("Alejandro", "Reyes", email = "alejandro.reyes.ds@gmail.com", role = c("aut", "ccp"), 
+Version: 1.61.1
+Authors@R: c(
+    person("Simon", "Anders", , "sanders@fs.tum.de", role = "aut"),
+    person("Alejandro", "Reyes", , "alejandro.reyes.ds@gmail.com", role = c("aut", "ccp"),
            comment = "Maintainer until 2026."),
-    person("Hugo", "Gruson", email = "hugo.gruson@embl.de", role = "cre")
+    person("Hugo", "Gruson", , "hugo.gruson@embl.de", role = "cre")
   )
-Imports: BiocGenerics, biomaRt, hwriter, methods, stringr, Rsamtools,
-        statmod, geneplotter, genefilter
-Depends: BiocParallel, SummarizedExperiment, IRanges (>= 2.5.17),
-        GenomicRanges (>= 1.23.7), DESeq2 (>= 1.39.6), AnnotationDbi,
-        S4Vectors (>= 0.23.18), R (>= 3.2)
-Suggests: GenomeInfoDb, GenomicFeatures, txdbmaker, pasilla (>= 0.2.22),
-        BiocStyle, knitr, rmarkdown, testthat,
-        pasillaBamSubset, GenomicAlignments, roxygen2, glmGamPoi
 Description: The package is focused on finding differential exon usage
-        using RNA-seq exon counts between samples with different
-        experimental designs. It provides functions that allows the
-        user to make the necessary statistical tests based on a model
-        that uses the negative binomial distribution to estimate the
-        variance between biological replicates and generalized linear
-        models for testing. The package also provides functions for the
-        visualization and exploration of the results.
+    using RNA-seq exon counts between samples with different experimental
+    designs. It provides functions that allows the user to make the
+    necessary statistical tests based on a model that uses the negative
+    binomial distribution to estimate the variance between biological
+    replicates and generalized linear models for testing. The package also
+    provides functions for the visualization and exploration of the
+    results.
 License: GPL (>= 3)
-URL: https://huber-group-embl.github.io/DEXSeq/, https://github.com/Huber-group-EMBL/DEXSeq
-biocViews: ImmunoOncology, Sequencing, RNASeq, DifferentialExpression, AlternativeSplicing, DifferentialSplicing, GeneExpression, Visualization
-VignetteBuilder: knitr
-RoxygenNote: 7.3.3
-Encoding: UTF-8
+URL: https://huber-group-embl.github.io/DEXSeq/,
+    https://github.com/Huber-group-EMBL/DEXSeq
 BugReports: https://github.com/Huber-group-EMBL/DEXSeq/issues
+Depends: 
+    AnnotationDbi,
+    BiocParallel,
+    DESeq2 (>= 1.39.6),
+    GenomicRanges (>= 1.23.7),
+    IRanges (>= 2.5.17),
+    R (>= 3.2),
+    S4Vectors (>= 0.23.18),
+    SummarizedExperiment
+Imports: 
+    BiocGenerics,
+    biomaRt,
+    genefilter,
+    geneplotter,
+    hwriter,
+    methods,
+    Rsamtools,
+    statmod,
+    stringr
+Suggests: 
+    BiocStyle,
+    GenomeInfoDb,
+    GenomicAlignments,
+    GenomicFeatures,
+    glmGamPoi,
+    knitr,
+    pasilla (>= 0.2.22),
+    pasillaBamSubset,
+    rmarkdown,
+    roxygen2,
+    testthat,
+    txdbmaker
+VignetteBuilder: 
+    knitr
+biocViews: ImmunoOncology, Sequencing, RNASeq, DifferentialExpression,
+    AlternativeSplicing, DifferentialSplicing, GeneExpression,
+    Visualization
+Encoding: UTF-8
+RoxygenNote: 7.3.3
