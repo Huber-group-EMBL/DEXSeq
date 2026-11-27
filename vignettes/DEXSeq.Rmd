@@ -504,7 +504,7 @@ numbOfGenes
 
 The preprocessing steps of the analysis are done using two Python scripts that we provide with `r BiocStyle::Biocpkg("DEXSeq")`.
 
-You do not need to know how to use Python; however you have to install the Python package **HTSeq**, following the explanations given on the [**HTSeq** web page](http://www-huber.embl.de/users/anders/HTSeq/doc/install.html).
+You do not need to know how to use Python; however you have to install the Python package **HTSeq**, following the explanations given on the [**HTSeq** web page](https://htseq.readthedocs.io/en/latest/install.html).
 
 Once you have installed **HTSeq**, you can use the two Python scripts, *dexseq_prepare_annotation.py* and *dexseq_count.py*, that come with the `r BiocStyle::Biocpkg("DEXSeq")` package. If you have trouble finding them, start R and ask for the installation directory with:
 

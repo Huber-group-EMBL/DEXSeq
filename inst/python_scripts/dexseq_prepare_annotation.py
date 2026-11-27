@@ -33,7 +33,7 @@ try:
    import HTSeq
 except ImportError:
    sys.stderr.write( "Could not import HTSeq. Please install the HTSeq Python framework\n" )   
-   sys.stderr.write( "available from http://www-huber.embl.de/users/anders/HTSeq\n" )   
+   sys.stderr.write( "available from https://pypi.org/project/HTSeq/\n" )   
    sys.exit(1)
 
 

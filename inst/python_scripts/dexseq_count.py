@@ -52,6 +52,12 @@ if len( sys.argv ) == 1:
 (opts, args) = optParser.parse_args()
 
 if len( args ) != 3:
+   # Options pasted from a document often use typographic dashes, which optparse treats as positional arguments
+   for a in args:
+      if a and ord( a[0] ) > 127:
+         sys.stderr.write( sys.argv[0] + ": Error: Argument '" + a + "' starts with a non-ASCII character " +
+            "(possibly a typographic dash instead of '-'). Please retype the option, e.g. '-s' or '--stranded'.\n" )
+         sys.exit( 1 )
    sys.stderr.write( sys.argv[0] + ": Error: Please provide three arguments.\n" )
    sys.stderr.write( "  Call with '-h' to get usage information.\n" )
    sys.exit( 1 )
@@ -60,7 +66,7 @@ try:
    import HTSeq
 except ImportError:
    sys.stderr.write( "Could not import HTSeq. Please install the HTSeq Python framework\n" )   
-   sys.stderr.write( "available from http://www-huber.embl.de/users/anders/HTSeq\n" )   
+   sys.stderr.write( "available from https://pypi.org/project/HTSeq/\n" )   
    sys.exit(1)
 
 gff_file = args[0]
