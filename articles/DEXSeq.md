@@ -425,7 +425,7 @@ to this individual dispersion values andfinally, the fitted values are
 taken as a prior in order to shrink the per-exon estimates towards the
 fitted values. See the
 *[DESeq2](https://bioconductor.org/packages/3.24/DESeq2)* paper for the
-rational behind the shrinkage approach (Love et al. (2014)).
+rational behind the shrinkage approach ((**deseq2?**)).
 
 ``` r
 
@@ -880,8 +880,8 @@ results, the package provides an HTML report generator, implemented in
 the function
 [`DEXSeqHTML()`](https://huber-group-embl.github.io/DEXSeq/reference/DEXSeqHTML.md).
 This function uses the package
-*[hwriter](https://CRAN.R-project.org/package=hwriter)* (Pau and Huber
-2009) to create a result table with links to plots for the significant
+*[hwriter](https://CRAN.R-project.org/package=hwriter)* (**hwriter?**)
+to create a result table with links to plots for the significant
 results, allowing a more detailed exploration of the results.
 
 ``` r
@@ -1009,7 +1009,7 @@ scripts that we provide with
 You do not need to know how to use Python; however you have to install
 the Python package **HTSeq**, following the explanations given on the
 [**HTSeq** web
-page](http://www-huber.embl.de/users/anders/HTSeq/doc/install.md).
+page](https://htseq.readthedocs.io/en/latest/install.html).
 
 Once you have installed **HTSeq**, you can use the two Python scripts,
 *dexseq_prepare_annotation.py* and *dexseq_count.py*, that come with the
@@ -1422,11 +1422,11 @@ given above. A mean-variance relation is fitted using the individual
 dispersion values. Finally, the individual values are shrinked towards
 the fitted values. For more details about this shrinkage approach look
 at the *[DESeq2](https://bioconductor.org/packages/3.24/DESeq2)*
-vignette and/or its manuscript (Love et al. 2014). For the likelihood
-ratio test, this full model is fit and compared with the fit of the
-reduced model, which lacks the interaction term
-$`\beta^\text{EC}_{i\rho_j}`$. As described in Section
-@ref{complexdesigns}, alternative model formulae can be specified.
+vignette and/or its manuscript (**deseq2?**). For the likelihood ratio
+test, this full model is fit and compared with the fit of the reduced
+model, which lacks the interaction term $`\beta^\text{EC}_{i\rho_j}`$.
+As described in Section @ref{complexdesigns}, alternative model formulae
+can be specified.
 
 ### Requirements on GTF files
 
@@ -1481,7 +1481,7 @@ the generation of the present document.
 sessionInfo()
 ```
 
-    ## R Under development (unstable) (2026-11-23 r90971)
+    ## R Under development (unstable) (2026-11-26 r90998)
     ## Platform: x86_64-pc-linux-gnu
     ## Running under: Ubuntu 26.04.1 LTS
     ## 
@@ -1503,18 +1503,18 @@ sessionInfo()
     ## [8] base     
     ## 
     ## other attached packages:
-    ##  [1] DEXSeq_1.61.0               DESeq2_1.53.8              
+    ##  [1] DEXSeq_1.61.0               DESeq2_1.54.0              
     ##  [3] SummarizedExperiment_1.45.0 MatrixGenerics_1.27.0      
-    ##  [5] matrixStats_1.5.0           BiocParallel_1.47.0        
-    ##  [7] GenomeInfoDb_1.49.3         GenomicAlignments_1.51.0   
-    ##  [9] Rsamtools_2.31.0            Biostrings_2.81.9          
-    ## [11] XVector_0.53.0              pasillaBamSubset_0.51.0    
-    ## [13] txdbmaker_1.9.0             GenomicFeatures_1.65.2     
-    ## [15] AnnotationDbi_1.77.0        Biobase_2.73.2             
+    ##  [5] matrixStats_1.5.0           BiocParallel_1.48.0        
+    ##  [7] GenomeInfoDb_1.50.0         GenomicAlignments_1.51.0   
+    ##  [9] Rsamtools_2.31.0            Biostrings_2.82.0          
+    ## [11] XVector_0.54.0              pasillaBamSubset_0.52.0    
+    ## [13] txdbmaker_1.9.0             GenomicFeatures_1.66.0     
+    ## [15] AnnotationDbi_1.77.0        Biobase_2.74.0             
     ## [17] GenomicRanges_1.67.0        Seqinfo_1.5.0              
-    ## [19] IRanges_2.47.5              S4Vectors_0.53.0           
-    ## [21] BiocGenerics_0.59.13        generics_0.1.4             
-    ## [23] BiocStyle_2.41.0           
+    ## [19] IRanges_2.48.0              S4Vectors_0.53.0           
+    ## [21] BiocGenerics_0.60.0         generics_0.1.4             
+    ## [23] BiocStyle_2.42.0           
     ## 
     ## loaded via a namespace (and not attached):
     ##  [1] DBI_1.3.0            bitops_1.1-0         httr2_1.3.0         
@@ -1526,25 +1526,25 @@ sessionInfo()
     ## [19] UCSC.utils_1.11.0    ragg_1.5.2           bit_4.6.0           
     ## [22] xfun_0.62            cachem_1.1.0         cigarillo_1.5.0     
     ## [25] jsonlite_2.0.0       progress_1.2.3       blob_1.3.0          
-    ## [28] DelayedArray_0.39.8  parallel_4.7.0       prettyunits_1.2.0   
+    ## [28] DelayedArray_0.40.0  parallel_4.7.0       prettyunits_1.2.0   
     ## [31] R6_2.6.1             bslib_0.12.0         stringi_1.8.9       
-    ## [34] RColorBrewer_1.1-3   rtracklayer_1.75.0   genefilter_1.95.0   
+    ## [34] RColorBrewer_1.1-3   rtracklayer_1.75.0   genefilter_1.96.0   
     ## [37] jquerylib_0.1.4      Rcpp_1.1.2           bookdown_0.48       
     ## [40] knitr_1.52           BiocBaseUtils_1.17.0 splines_4.7.0       
     ## [43] Matrix_1.7-6         tidyselect_1.2.1     abind_1.4-8         
     ## [46] yaml_2.3.12          codetools_0.2-20     hwriter_1.3.2.1     
     ## [49] curl_8.2.0           lattice_0.23-1       tibble_3.3.1        
-    ## [52] KEGGREST_1.53.6      S7_1.0.0             evaluate_1.0.5      
-    ## [55] desc_1.4.3           survival_3.8-12      BiocFileCache_3.3.3 
+    ## [52] KEGGREST_1.54.0      S7_1.0.0             evaluate_1.0.5      
+    ## [55] desc_1.4.3           survival_3.8-13      BiocFileCache_3.4.0 
     ## [58] pillar_1.11.1        BiocManager_1.30.27  filelock_1.0.3      
     ## [61] RCurl_1.98-1.20      hms_1.1.4            ggplot2_4.0.4       
     ## [64] scales_1.4.0         xtable_1.8-8         glue_1.8.1          
-    ## [67] tools_4.7.0          BiocIO_1.25.0        annotate_1.91.1     
+    ## [67] tools_4.7.0          BiocIO_1.25.0        annotate_1.92.0     
     ## [70] locfit_1.5-9.12      fs_2.1.0             XML_3.99-0.25       
     ## [73] grid_4.7.0           restfulr_0.0.17      cli_3.6.6           
     ## [76] textshaping_1.1.0    S4Arrays_1.15.0      dplyr_1.2.1         
     ## [79] gtable_0.3.6         sass_0.5.0           digest_0.6.39       
-    ## [82] SparseArray_1.15.0   geneplotter_1.91.0   rjson_0.2.23        
+    ## [82] SparseArray_1.15.0   geneplotter_1.92.0   rjson_0.2.23        
     ## [85] farver_2.1.2         memoise_2.0.1        htmltools_0.5.9     
     ## [88] pkgdown_2.2.1        lifecycle_1.0.5      httr_1.4.9          
     ## [91] statmod_1.5.2        bit64_4.8.6
@@ -1573,14 +1573,6 @@ and Steven Salzberg. 2013. “TopHat2: Accurate Alignment of
 Transcriptomes in the Presence of Insertions, Deletions and Gene
 Fusions.” *Genome Biology* 14 (4): R36.
 <https://doi.org/10.1186/gb-2013-14-4-r36>.
-
-Love, Michael I, Wolfgang Huber, and Simon Anders. 2014. “Moderated
-estimation of fold change and dispersion for RNA-Seq data with DESeq2.”
-*bioRxiv*, ahead of print. <https://doi.org/10.1101/002832>.
-
-Pau, Gregoire, and Wolfgang Huber. 2009. “The Hwriter Package.” *The R
-Journal* 1: 22.
-<http://journal.r-project.org/archive/2009-1/RJournal_2009-1_Pau+Huber.pdf>.
 
 Reyes, Alejandro. 2013. *Data Preprocessing and Creation of the Data
 Objects pasillaGenes and pasillaExons*. Vignette to Bioconductor data
