@@ -11,6 +11,9 @@
 
 ## Citation
 
+Source:
+[`inst/CITATION`](https://github.com/Huber-group-EMBL/DEXSeq/blob/devel/inst/CITATION)
+
 Anders S, Reyes A, Huber W (2012). “Detecting differential usage of
 exons from RNA-seq data.” *Genome Research*, **22**, 2008–2017.
 [doi:10.1101/gr.133744.111](https://doi.org/10.1101/gr.133744.111).
