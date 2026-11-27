@@ -81,7 +81,7 @@ CHANGES IN VERSION 1.17.28
 -------------------------
 
 
-    o Added support for estimating fold change rates with continous variables.
+    o Added support for estimating fold change rates with continuous variables.
     o Reduced RAM usage when parallelizing
 
 CHANGES IN VERSION 1.59.1
@@ -89,3 +89,7 @@ CHANGES IN VERSION 1.59.1
 
     o Fixed a bug where quotes in data files could lead to an error in `DEXSeqDataSetFromHTSeq()`. Thanks to multiple reported in issue #15.
 
+CHANGES IN VERSION 1.61
+-------------------------
+
+    o The Biobase dependency is no longer used.
