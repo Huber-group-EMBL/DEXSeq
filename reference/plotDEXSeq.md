@@ -104,7 +104,6 @@ graphics, `segments`
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
   data(pasillaDEXSeqDataSet, package="pasilla")
   dxd <- estimateSizeFactors( dxd )
   dxd <- estimateDispersions( dxd )
@@ -112,5 +111,4 @@ if (FALSE) { # \dontrun{
   dxr <- DEXSeqResults( dxd )
 
   plotDEXSeq( dxr, "FBgn0010909" )
-} # }
 ```

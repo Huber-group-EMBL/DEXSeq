@@ -97,9 +97,7 @@ expression)
 ## Examples
 
 ``` r
-  if (FALSE) { # \dontrun{
-    data(pasillaDEXSeqDataSet, package="pasilla")
-    dxr <- DEXSeq( dxd )
-    DEXSeqHTML( object=dxr )
-  } # }
+  data(pasillaDEXSeqDataSet, package="pasilla")
+  dxr <- DEXSeq( dxd )
+  DEXSeqHTML( object=dxr )
 ```

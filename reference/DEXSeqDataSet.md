@@ -113,11 +113,9 @@ A DEXSeqDataSet object.
 ## Examples
 
 ``` r
-
-if (FALSE) { # \dontrun{
   #######################################
   ### From the output of the          ### 
-  ### acconpaning python scripts      ### 
+  ### accompanying python scripts     ### 
   #######################################
 
   inDir = system.file("extdata", package="pasilla", mustWork=TRUE)
@@ -134,7 +132,20 @@ if (FALSE) { # \dontrun{
     sampleData = sampleData,
     design = ~ sample + exon + type:exon + condition:exon,
     flattenedfile=flattenedfile )
+#> converting counts to integer mode
+#> Warning: some variables in design formula are characters, converting to factors
+#> class: DEXSeqDataSet 
+#> dim: 70463 14 
+#> metadata(1): version
+#> assays(1): counts
+#> rownames(70463): FBgn0000003:E001 FBgn0000008:E001 ... FBgn0261575:E001
+#>   FBgn0261575:E002
+#> rowData names(5): featureID groupID exonBaseMean exonBaseVar
+#>   transcripts
+#> colnames: NULL
+#> colData names(4): sample condition type exon
 
+if (FALSE) { # \dontrun{
 
   #######################################
   ### From GRanges derived objects    ###

@@ -142,11 +142,9 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span>  <span class="co">#######################################</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span>  <span class="co">#######################################</span></span></span>
 <span class="r-in"><span>  <span class="co">### From the output of the          ### </span></span></span>
-<span class="r-in"><span>  <span class="co">### acconpaning python scripts      ### </span></span></span>
+<span class="r-in"><span>  <span class="co">### accompanying python scripts     ### </span></span></span>
 <span class="r-in"><span>  <span class="co">#######################################</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="va">inDir</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, package<span class="op">=</span><span class="st">"pasilla"</span>, mustWork<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
@@ -156,14 +154,27 @@
 <span class="r-in"><span>      type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"single"</span>, <span class="st">"paired"</span>, <span class="st">"paired"</span>, <span class="st">"single"</span>, <span class="st">"single"</span>, <span class="st">"paired"</span>, <span class="st">"paired"</span><span class="op">)</span> <span class="op">)</span></span></span>
 <span class="r-in"><span>     </span></span>
 <span class="r-in"><span>  <span class="va">countFiles</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">inDir</span>, pattern<span class="op">=</span><span class="st">"fb.txt"</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/row_colnames.html" class="external-link">rownames</a></span><span class="op">(</span> <span class="va">sampleData</span> <span class="op">)</span> <span class="op">&lt;-</span> <span class="va">countFiles</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span> <span class="va">sampleData</span> <span class="op">)</span> <span class="op">&lt;-</span> <span class="va">countFiles</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu">DEXSeqDataSetFromHTSeq</span><span class="op">(</span></span></span>
 <span class="r-in"><span>    countfiles<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span> <span class="va">inDir</span>, <span class="va">countFiles</span> <span class="op">)</span>,</span></span>
 <span class="r-in"><span>    sampleData <span class="op">=</span> <span class="va">sampleData</span>,</span></span>
 <span class="r-in"><span>    design <span class="op">=</span> <span class="op">~</span> <span class="va">sample</span> <span class="op">+</span> <span class="va">exon</span> <span class="op">+</span> <span class="va">type</span><span class="op">:</span><span class="va">exon</span> <span class="op">+</span> <span class="va">condition</span><span class="op">:</span><span class="va">exon</span>,</span></span>
 <span class="r-in"><span>    flattenedfile<span class="op">=</span><span class="va">flattenedfile</span> <span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> converting counts to integer mode</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>some variables in design formula are characters, converting to factors</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class: DEXSeqDataSet </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dim: 70463 14 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> metadata(1): version</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> assays(1): counts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rownames(70463): FBgn0000003:E001 FBgn0000008:E001 ... FBgn0261575:E001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   FBgn0261575:E002</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rowData names(5): featureID groupID exonBaseMean exonBaseVar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   transcripts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> colnames: NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> colData names(4): sample condition type exon</span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="co">#######################################</span></span></span>
 <span class="r-in"><span>  <span class="co">### From GRanges derived objects    ###</span></span></span>

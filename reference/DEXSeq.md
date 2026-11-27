@@ -48,8 +48,6 @@ A `DEXSeqResults` object.
 ## Examples
 
 ``` r
-  if (FALSE) { # \dontrun{
-      data(pasillaDEXSeqDataSet, package="pasilla")
-      dxr <- DEXSeq( dxd )
-  } # }
+  data(pasillaDEXSeqDataSet, package="pasilla")
+  dxr <- DEXSeq( dxd )
 ```
