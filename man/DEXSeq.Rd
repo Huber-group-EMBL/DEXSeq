@@ -39,8 +39,6 @@
   A \code{DEXSeqResults} object.
 }
 \examples{
-  \dontrun{
-      data(pasillaDEXSeqDataSet, package="pasilla")
-      dxr <- DEXSeq( dxd )
-  }
+  data(pasillaDEXSeqDataSet, package="pasilla")
+  dxr <- DEXSeq( dxd )
 }

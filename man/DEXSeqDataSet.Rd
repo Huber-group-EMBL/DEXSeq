@@ -107,11 +107,9 @@
   for differences in exon usage. 
 }
 \examples{
-
-\dontrun{
   #######################################
   ### From the output of the          ### 
-  ### acconpaning python scripts      ### 
+  ### accompanying python scripts     ### 
   #######################################
 
   inDir = system.file("extdata", package="pasilla", mustWork=TRUE)
@@ -129,6 +127,7 @@
     design = ~ sample + exon + type:exon + condition:exon,
     flattenedfile=flattenedfile )
 
+\dontrun{
 
   #######################################
   ### From GRanges derived objects    ###

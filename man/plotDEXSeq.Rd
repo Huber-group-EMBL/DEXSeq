@@ -84,7 +84,6 @@
   graphics, \code{segments}
 }
 \examples{
-\dontrun{
   data(pasillaDEXSeqDataSet, package="pasilla")
   dxd <- estimateSizeFactors( dxd )
   dxd <- estimateDispersions( dxd )
@@ -92,5 +91,4 @@
   dxr <- DEXSeqResults( dxd )
 
   plotDEXSeq( dxr, "FBgn0010909" )
-}
 }
