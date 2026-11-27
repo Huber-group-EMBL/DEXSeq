@@ -1,5 +1,5 @@
 Package: DEXSeq
-Version: 1.61.0
+Version: 1.61.1
 Title: Inference of differential exon usage in RNA-Seq
 Authors@R: 
   c(
